@@ -1,4 +1,4 @@
-Anime-Auto-Downloader---XDCC
+Auto-Anime-Downloader---XDCC
 ============================
 
 Automated anime downloader using irc xdcc instead of torrents :)
