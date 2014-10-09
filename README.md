@@ -20,3 +20,16 @@ So, before this works you will have to set things up correctly:
 11. now it works, your files will be dlld to you home folder, option to change this will be added in the future
 
 YOUR DONE!
+
+
+Future functions:
+Change Download Location 
+Change Bot
+Add multiple anime subscription
+In the far, far away future mal implementation, since its logically that once downloaded you watch it.
+Auto remove function(like delete in 30 days);
+
+How it works:
+
+Scans first item on nyaa's rss, search on intel.haruhichan.com on the bot page for a pack containing the anime name from the rss feed, open irssi and let it automaticly join #intel and automaticly run command /msg [bot] xdcc send #packnumber and it starts downloading.
+
