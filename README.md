@@ -30,28 +30,37 @@ Search Examples:
 
 Horriblesubs 720p <- downloads all new 720p episodes from horriblesubs
 
-Horriblesubs Psycho-Pass 2 720p, Horriblesubs Shirobako 1080p <-downloads all new psycho pass 2 eps in 720p, and all new shirobako 1080p episodes.
+Horriblesubs Psycho-Pass 2 720p, Horriblesubs Shirobako 1080p <-downloads all new psycho pass 2 eps in 720p, 
+and all new shirobako 1080p episodes.
 
 (Only works for horriblesubs for now, since the bot used in this case, only contains horriblesubs episodes)
 
-10. start AutoAnimeDownloader.exe by typing cd /home/(user)/.irssi, or if you are already in home: cd /.irssi and then mono AutoAnimeDownloader.exe
+10. start AutoAnimeDownloader.exe by typing cd /home/(user)/.irssi, or if you are already in home: cd /.irssi 
+and then mono AutoAnimeDownloader.exe
 
 11. now it works, your files will be dlld to you home/(user) folder, option to change this will be added in the future
 
-12. to run it 24/7, you will have to lauch it from the raspberry pi itself, if you use ssh it will stop the script when you close the ssh connection.
+12. to run it 24/7, you will have to lauch it from the raspberry pi itself, if you use ssh it will
+stop the script when you close the ssh connection.
 
 YOUR DONE!
 
 
 Future functions:
+
 Change Download Location 
+
 Change Bot
+
 In the far, far away future mal implementation, since its logically that once downloaded you watch it.
+
 Auto remove function(like delete in 30 days);
 
 How it works:
 
-Scans first item on nyaa's rss, search on intel.haruhichan.com on the bot page for a pack containing the anime name from the rss feed, open irssi and let it automaticly join #intel and automaticly run command /msg [bot] xdcc send #packnumber and it starts downloading.
+Scans first item on nyaa's rss, search on intel.haruhichan.com on the bot page for a pack containing the 
+anime name from the rss feed, open irssi and let it automaticly join #intel and automaticly run command 
+/msg [bot] xdcc send #packnumber and it starts downloading.
 
 --- 0.1 released (first version count)
 added multiple anime subscription support
