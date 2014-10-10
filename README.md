@@ -71,8 +71,11 @@ Versions:
 ------------------
 
 --- 0.1 released (first version count)
+
 added multiple anime subscription support
+
 possible fix for crash when anime is not yet uploaded on intel.haruhichan
 
 known problems:
+
 While I tested it, it crashed again because of the fix above, atleast that is what I think, it was at night and i forgot to save the ssh log.
