@@ -29,6 +29,7 @@ So, before this works you will have to set things up correctly:
 Search Examples: 
 
 Horriblesubs 720p <- downloads all new 720p episodes from horriblesubs
+
 Horriblesubs Psycho-Pass 2 720p, Horriblesubs Shirobako 1080p <-downloads all new psycho pass 2 eps in 720p, and all new shirobako 1080p episodes.
 
 (Only works for horriblesubs for now, since the bot used in this case, only contains horriblesubs episodes)
