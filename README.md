@@ -24,16 +24,7 @@ So, before this works you will have to set things up correctly:
 8. change nickname etc in config file to your liking, do not use the one provided with it, since it might be in use.
 
 9. open settings.ini and change the search parameter to your liking, you can add multiple anime's by seperating them with a ",".
-(DONT DELETE THE "^"). 
-
-Search Examples: 
-
-Horriblesubs 720p <- downloads all new 720p episodes from horriblesubs
-
-Horriblesubs Psycho-Pass 2 720p, Horriblesubs Shirobako 1080p <-downloads all new psycho pass 2 eps in 720p, 
-and all new shirobako 1080p episodes.
-
-(Only works for horriblesubs for now, since the bot used in this case, only contains horriblesubs episodes)
+(DONT DELETE THE "^"). (Only works for horriblesubs for now, since the bot used in this case, only contains horriblesubs episodes)
 
 10. start AutoAnimeDownloader.exe by typing cd /home/(user)/.irssi, or if you are already in home: cd /.irssi 
 and then mono AutoAnimeDownloader.exe
@@ -45,9 +36,21 @@ stop the script when you close the ssh connection.
 
 YOUR DONE!
 
+____________________________________________________________________________________________________
+Search examples:
+-------------------
+
+Search Examples: 
+
+Horriblesubs 720p <- downloads all new 720p episodes from horriblesubs
+
+Horriblesubs Psycho-Pass 2 720p, Horriblesubs Shirobako 1080p <-downloads all new psycho pass 2 eps in 720p, 
+and all new shirobako 1080p episodes.
+
+____________________________________________________________________________________________________
 
 Future functions:
-
+-------------------
 Change Download Location 
 
 Change Bot
@@ -56,11 +59,16 @@ In the far, far away future mal implementation, since its logically that once do
 
 Auto remove function(like delete in 30 days);
 
+____________________________________________________________________________________________________
 How it works:
-
-Scans first item on nyaa's rss, search on intel.haruhichan.com on the bot page for a pack containing the 
+------------------
+Scans first item on nyaas rss, search on intel.haruhichan.com on the bot page for a pack containing the 
 anime name from the rss feed, open irssi and let it automaticly join #intel and automaticly run command 
 /msg [bot] xdcc send #packnumber and it starts downloading.
+
+____________________________________________________________________________________________________
+Versions:
+------------------
 
 --- 0.1 released (first version count)
 added multiple anime subscription support
