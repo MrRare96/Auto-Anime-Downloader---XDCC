@@ -51,6 +51,8 @@ ________________________________________________________________________________
 
 Future functions:
 -------------------
+Setup GUI, no more text editors
+
 Change Download Location 
 
 Change Bot
