@@ -81,3 +81,8 @@ possible fix for crash when anime is not yet uploaded on intel.haruhichan
 known problems:
 
 While I tested it, it crashed again because of the fix above, atleast that is what I think, it was at night and i forgot to save the ssh log.
+
+____________________________________________________________________________________________________
+Future Vision:
+------------------
+A popcorn time ish anime watcher / downloader. And it will be more reliable since it does not need the use of torrents, xdcc are generaly faster then torrents, and nomatter how old the file on the server is, it will have equal speeds to new one(but it has to be on the server). No more waiting until it is seeded, it will be press and play :). Now, this might never become true, since that requires a shit ton of work and I am on my own, with an programming language wich i just started at, and my study just starting, which requires a lot of time. So for now it will be a simple automated downloader :)
