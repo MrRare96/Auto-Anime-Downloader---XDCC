@@ -23,8 +23,7 @@ So, before this works you will have to set things up correctly:
 
 8. change nickname etc in config file to your liking, do not use the one provided with it, since it might be in use.
 
-9. open settings.ini and change the search parameter to your liking, you can add multiple anime's by seperating them with a ",".
-(DONT DELETE THE "^"). (Only works for horriblesubs for now, since the bot used in this case, only contains horriblesubs episodes)
+9. open AAD SetupGUI and follow the steps shown to you when launched (download the .exe only if you do not want to edit/change the code).
 
 10. start AutoAnimeDownloader.exe by typing cd /home/(user)/.irssi, or if you are already in home: cd /.irssi 
 and then mono AutoAnimeDownloader.exe
