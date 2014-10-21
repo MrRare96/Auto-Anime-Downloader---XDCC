@@ -1,5 +1,3 @@
-//THIS IS THE IRSSI CONFIG FILE, YOU NEED TO USE THIS OTHERWISE YOUR IRSSI CLIENT WONT WORK!
-//<- remove this if you are going to use this
 servers = (
   { address = "irc.ubuntu.com"; chatnet = "Ubuntu"; port = "8001"; },
   { address = "eu.irc6.net"; chatnet = "IRCnet"; port = "6667"; },
@@ -87,10 +85,10 @@ chatnets = {
   };
   Rizon = {
     type = "IRC";
-    nick = "IRCAutoDownloader_TEST"; //change to your nickname, it needs to be unique I think
-    username = "rareamv";//same as above
-    realname = "RareA";//same as above
-    autosendcmd = "/join intel;/msg CR-NL|NEW xdcc send #3000;";
+    nick = "IRCAutoDownloader_TEST";
+    username = "rareamv";
+    realname = "RareA";
+    autosendcmd = "/join intel;/msg Ginpachi-Sensei xdcc send #7934;";
     max_kicks = "1";
     max_msgs = "3";
     max_modes = "4";
@@ -109,7 +107,7 @@ chatnets = {
 channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
-  { name = "#horriblesubs"; chatnet = "Rizon"; autojoin = "yes"; }
+  { name = "#intel"; chatnet = "Rizon"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -275,7 +273,7 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Rare"; user_name = "rare"; nick = "rare"; }; //pick something unique so it definately will work!!!
+  core = { real_name = "Rare"; user_name = "rare"; nick = "rare"; };
   "fe-text" = { actlist_sort = "refnum"; };
   "irc/dcc" = {
     dcc_autoresume = "yes";

@@ -3,6 +3,8 @@ using Gtk;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Net;
+using System.Text.RegularExpressions;
 
 public partial class MainWindow: Gtk.Window
 {
@@ -14,6 +16,64 @@ public partial class MainWindow: Gtk.Window
 			"3. After adding an anime subscription and/or adding a new DL time," + "\n" + " You need to press the save button!" + "\n" + "Your DL time should be the number that comes after this calculation: " + "\n" + "10000 / your download speed / 60 = dl time" + "\n" + "you need to round it to a hole number! for example mine is 1.85, so i need to fill in 2" +  "\n" + "\n" +
 			"THIS PROGRAM IS ONLY ABLE TO CREATE THE SETTINGS.INI," + "\n" + " ITS NOT ABLE TO LAUNCH THE PROGRAM" + "\n" +  "\n" + "Maybe i forgot something, anyway:" + "\n" + "Thanks for downloading and using this!" + "\n" + "\n" + 
 			"A complete tutorial can be found here:" + "\n" + "https://github.com/RareAMV/Auto-Anime-Downloader---XDCC" + "\n";
+
+		string intelcontent = readIntel ("http://intel.haruhichan.com/");
+		int posstartbotlist = intelcontent.IndexOf ("<a href=\"javascript:botPackList");
+		string bothtmlcode = intelcontent.Substring (posstartbotlist);
+		int posendbotlist = intelcontent.IndexOf ("</a><br /><br />");
+		bothtmlcode = bothtmlcode.Substring (0, posendbotlist);
+
+		string[] boturl = explode ("<br />", bothtmlcode);
+		Logging.Text = boturl [3];
+		int boturlx = boturl.Length;
+
+		int x = 0;
+		int y = 0;
+
+
+		while (x != boturlx) {
+
+			try{
+				string botnameunref = boturl [x];
+				int posstartboturlnum = botnameunref.IndexOf (":");
+				string boturlnum = botnameunref.Substring (posstartboturlnum);
+				int posendboturlnum = botnameunref.IndexOf (";");
+				boturlnum = boturlnum.Substring (0, posendboturlnum);
+
+				int posofstartnum = boturlnum.IndexOf("(");
+				boturlnum = boturlnum.Substring(posofstartnum);
+				int posofendnum = boturlnum.IndexOf(")");
+				boturlnum = boturlnum.Substring(1, posofendnum - 1);
+
+				int posstartname = botnameunref.IndexOf(";\">");
+				string botname = botnameunref.Substring(posstartname);
+				int posendname = botname.IndexOf("</a");
+				botname = botname.Substring(3, posendname - 3);
+				botnames.Add(botname);
+				botnums.Add(boturlnum);
+			
+				botlistbox.AppendText (global::Mono.Unix.Catalog.GetString (botname));
+			} catch {
+				//botlistbox.AppendText (global::Mono.Unix.Catalog.GetString ("SOMETHING WENT WRONG ON " + x.ToString()));
+				y++;
+				if (y == 5) {
+					break;
+				}
+			}
+			x++;
+
+		}
+
+	
+	}
+
+	public static List<string> botnames = new List<string>();
+	public static List<string> botnums = new List<string>();
+
+	public static string[] explode(string separator, string source) {
+
+		return source.Split (new string[] { separator }, StringSplitOptions.None);
+
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -28,9 +88,26 @@ public partial class MainWindow: Gtk.Window
 
 	protected void AddToSub (object sender, EventArgs e)
 	{
+
+		string botnumber = String.Empty;
+		string bot = botlistbox.ActiveText;
+		bot = bot.Substring (0, bot.IndexOf("(") - 1);
+		int listlength = botnames.Count;
+		int y = 0;
+		while (y != listlength) {
+
+			if (botnames [y].Contains (bot)) {
+				botnumber = botnums [y];
+				break;
+			}
+			y++;
+		}
+
+
+
 		if (i > 0 || location == "" || location == null) {
-			AnimeListed.Buffer.Text = "New Animes added:" + "\n";
-			names.Append (AnimeEntry.Text + "\n");
+			AnimeListed.Buffer.Text = "New Animes added:" + " subscribed using bot: " + bot + "\n";
+			names.Append (AnimeEntry.Text + "@" + bot +"@" + botnumber + "\n");
 		} else {
 			int arrlength = knownanimes.Length;
 			int x = 0;
@@ -51,17 +128,14 @@ public partial class MainWindow: Gtk.Window
 		AnimeListed.Buffer.Text = names + "\n";	
 		
 
-		Logging.Text = "Anime added to subscriptions: ";
+		Logging.Text = "Anime added to subscriptions: " + AnimeEntry.Text + " botnumber = " + botnumber;
 		i++;
 
 	}
 		
 
 
-	protected void AddBot (object sender, EventArgs e)
-	{
-		throw new NotImplementedException ();
-	}
+
 
 	public static string[] knownanimes;
 	public static string settingcontent = String.Empty;
@@ -123,8 +197,20 @@ public partial class MainWindow: Gtk.Window
 				newConfig2.Remove (posoftime, lengthoftime);
 				newConfig2.Insert (posoftime, dltimenew);
 				newConfigString = newConfig2.ToString ();
+				newConfigString = newConfigString + " \n ^ \nirssiloc = ";
 
 
+			}
+			if (newirssiloc == true) {
+
+				int posofirssiloc = newConfigString.IndexOf ("irssiloc");
+				string tempcon = newConfigString.Substring (posofirssiloc);
+				int lengthofirssiloc = tempcon.Length;
+
+				var newConfig3 = new StringBuilder (newConfigString);
+				newConfig3.Remove (posofirssiloc, lengthofirssiloc);
+				newConfig3.Insert (posofirssiloc , irssiloc);
+				newConfigString = newConfig3.ToString ();
 			}
 			System.IO.File.WriteAllText (location, newConfigString);
 			Logging.Text = "Settings file saved to: " + location;
@@ -138,7 +224,8 @@ public partial class MainWindow: Gtk.Window
 		if (anameslength > 1) {
 			anames = anames.Substring (0, anameslength - 1);
 		} 
-		string settingstring = "search=" + anames + "\n ^ \nbotname=CR-NL|NEW \n ^ \nruntime = 4";
+
+		string settingstring = "search=" + anames + "\n ^ \nruntime = 0 \n ^ \nirssiloc = " + irssiloc;
 		location = "settings.ini";
 		//File.Create (location);
 		System.IO.File.WriteAllText (location, settingstring);
@@ -165,15 +252,16 @@ public partial class MainWindow: Gtk.Window
 
 	protected void OnDltimesetClicked (object sender, EventArgs e)
 	{
-		string[] dltimeset = settings[2].Split ('=');
-		string dltimecurrent = dltimeset [1];
-		dltimeold = "runtime = " + dltimecurrent;
-
-
-
-		string dltimestr = dltime.Text;
-		int dltimeint = 0;
 		try{
+			string[] dltimeset = settings[1].Split ('=');
+			string dltimecurrent = dltimeset [1];
+			dltimeold = "runtime = " + dltimecurrent;
+
+
+
+			string dltimestr = dltime.Text;
+			int dltimeint = 0;
+	
 
 			dltimeint = Convert.ToInt32(dltimestr);
 			dltimenew = "runtime = " + dltimestr;
@@ -182,12 +270,36 @@ public partial class MainWindow: Gtk.Window
 
 
 		} catch {
-			Logging.Text = "you did not use a number, this value should be a number";
+			Logging.Text = "you did not use a number, this value should be a number or you did not open settings.ini";
 			newdltime = false;
 		} 
 
 
 
 
+	}
+
+
+
+
+	public static string readIntel(string url){
+
+
+		var webClient = new WebClient();
+
+		string intel = webClient.DownloadString (url);
+
+
+		return intel;
+	}
+
+
+	public static string irssiloc = String.Empty;
+	public static bool newirssiloc = false;
+
+	protected void OnIrssilocClicked (object sender, EventArgs e)
+	{
+		irssiloc = "irssiloc = " + @locationofirs.Text;
+		newirssiloc = true;
 	}
 }

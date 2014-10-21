@@ -7,7 +7,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/AADSetupGUI.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="903 519">
+  <widget class="Gtk.Window" id="MainWindow" design-size="909 519">
     <property name="MemberName" />
     <property name="Title" translatable="yes">AADSetup</property>
     <property name="Icon">file:.\animeicon.png</property>
@@ -30,7 +30,7 @@
                 <property name="MemberName" />
                 <property name="WidthRequest">640</property>
                 <property name="CanFocus">True</property>
-                <property name="Position">593</property>
+                <property name="Position">1</property>
                 <child>
                   <widget class="Gtk.VBox" id="vbox1">
                     <property name="MemberName" />
@@ -40,7 +40,7 @@
                       <widget class="Gtk.Entry" id="AnimeEntry">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
-                        <property name="Text" translatable="yes">Horriblesubs animename 720p</property>
+                        <property name="Text" translatable="yes">subgroup animename resolution</property>
                         <property name="IsEditable">True</property>
                         <property name="InvisibleChar">●</property>
                       </widget>
@@ -48,6 +48,19 @@
                         <property name="Position">0</property>
                         <property name="AutoSize">False</property>
                         <property name="Expand">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.ComboBox" id="botlistbox">
+                        <property name="MemberName" />
+                        <property name="IsTextCombo">True</property>
+                        <property name="Items" translatable="yes" />
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
                       </packing>
                     </child>
                     <child>
@@ -60,7 +73,7 @@
                         <signal name="Clicked" handler="AddToSub" />
                       </widget>
                       <packing>
-                        <property name="Position">1</property>
+                        <property name="Position">2</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -72,7 +85,7 @@
                         <property name="Size">0</property>
                       </widget>
                       <packing>
-                        <property name="Position">2</property>
+                        <property name="Position">3</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -94,48 +107,8 @@
                         </child>
                       </widget>
                       <packing>
-                        <property name="Position">3</property>
-                        <property name="AutoSize">True</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="Gtk.HBox" id="hbox1">
-                        <property name="MemberName" />
-                        <property name="Spacing">6</property>
-                        <child>
-                          <widget class="Gtk.Entry" id="AddBotEntry">
-                            <property name="MemberName" />
-                            <property name="CanFocus">True</property>
-                            <property name="Text" translatable="yes">NOT USEABLE YET!!!</property>
-                            <property name="IsEditable">True</property>
-                            <property name="InvisibleChar">●</property>
-                          </widget>
-                          <packing>
-                            <property name="Position">0</property>
-                            <property name="AutoSize">True</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="Gtk.ToggleButton" id="Addbot">
-                            <property name="MemberName" />
-                            <property name="CanFocus">True</property>
-                            <property name="Type">TextOnly</property>
-                            <property name="Label" translatable="yes">AddBOT</property>
-                            <property name="UseUnderline">True</property>
-                          </widget>
-                          <packing>
-                            <property name="Position">1</property>
-                            <property name="AutoSize">True</property>
-                            <property name="Expand">False</property>
-                            <property name="Fill">False</property>
-                          </packing>
-                        </child>
-                      </widget>
-                      <packing>
                         <property name="Position">4</property>
                         <property name="AutoSize">True</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
                       </packing>
                     </child>
                     <child>
@@ -266,6 +239,47 @@
                       </packing>
                     </child>
                     <child>
+                      <widget class="Gtk.HBox" id="hbox1">
+                        <property name="MemberName" />
+                        <property name="Spacing">6</property>
+                        <child>
+                          <widget class="Gtk.Entry" id="locationofirs">
+                            <property name="MemberName" />
+                            <property name="CanFocus">True</property>
+                            <property name="Text" translatable="yes">Loction of irssi irc client(only necesarry for windows!)</property>
+                            <property name="IsEditable">True</property>
+                            <property name="InvisibleChar">●</property>
+                          </widget>
+                          <packing>
+                            <property name="Position">0</property>
+                            <property name="AutoSize">True</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Button" id="Irssiloc">
+                            <property name="MemberName" />
+                            <property name="CanFocus">True</property>
+                            <property name="Type">TextOnly</property>
+                            <property name="Label" translatable="yes">set irssi loc</property>
+                            <property name="UseUnderline">True</property>
+                            <signal name="Clicked" handler="OnIrssilocClicked" />
+                          </widget>
+                          <packing>
+                            <property name="Position">1</property>
+                            <property name="AutoSize">True</property>
+                            <property name="Expand">False</property>
+                            <property name="Fill">False</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
                       <widget class="Gtk.Button" id="createsettingfile">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
@@ -275,7 +289,7 @@
                         <signal name="Clicked" handler="OnCreatesettingfileClicked" />
                       </widget>
                       <packing>
-                        <property name="Position">1</property>
+                        <property name="Position">2</property>
                         <property name="AutoSize">False</property>
                       </packing>
                     </child>
@@ -289,7 +303,7 @@
                         <signal name="Clicked" handler="OnSaveClicked" />
                       </widget>
                       <packing>
-                        <property name="Position">2</property>
+                        <property name="Position">3</property>
                         <property name="AutoSize">False</property>
                       </packing>
                     </child>
@@ -300,7 +314,7 @@
           </widget>
         </child>
         <child>
-          <widget class="Gtk.Label" id="GtkLabel5">
+          <widget class="Gtk.Label" id="GtkLabel6">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">&lt;b&gt;Anime Subscription&lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
