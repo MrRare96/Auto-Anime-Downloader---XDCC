@@ -50,15 +50,19 @@ ________________________________________________________________________________
 
 Future functions:
 -------------------
-Setup GUI, no more text editors
+Delete anime subscription
+
+Windows functionality
+
+Batch download function
+
+Use custom rss feed
 
 Change Download Location 
 
-Change Bot
-
 In the far, far away future mal implementation, since its logically that once downloaded you watch it.
 
-Auto remove function(like delete in 30 days);
+Auto remove function(like delete in 30 days)(only if requested);
 
 ____________________________________________________________________________________________________
 How it works:
@@ -81,6 +85,18 @@ known problems:
 
 While I tested it, it crashed again because of the fix above, atleast that is what I think, it was at night and i forgot to save the ssh log.
 
+--- 0.1.1 released 
+functional gui added
+
+able to download animes from different sub groups(per anime)
+
+able to change bot you want to download from(per anime)
+
+almost functional on windows, almost....
+
+known problems: both gui and autoanimedownloader are not able to create there log and other files they write to. They will 
+crash if they are not present, you can find the files in the needed files directory, they can also help as an example if
+you want to use a text editor to edit the settings.ini for example.
 ____________________________________________________________________________________________________
 Future Vision:
 ------------------
