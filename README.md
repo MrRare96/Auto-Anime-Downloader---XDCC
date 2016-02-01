@@ -1,9 +1,17 @@
+
 Auto-Anime-Downloader---XDCC
 ============================
 
+
+
+
 Automated anime downloader using irc xdcc instead of torrents :)
 
-THIS IS LINUX ONLY FOR NOW!!!
+THIS IS LINUX ONLY FOR NOW!!! THIS IS OLD AND MIGHT NOT WORK ANYMORE.
+FOR WINDOWS, USE THIS:
+[WeebIRC](https://github.com/RareAMV/WeebIRC)
+This little irc client comes with a build in nibl.co.uk search function with the ability to batch download anime by selecting the search results :D.
+
 Yep, I made this mainly for the raspberry pi.
 So, before this works you will have to set things up correctly:
 
